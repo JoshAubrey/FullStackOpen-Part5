@@ -22,8 +22,7 @@ const App = () => {
       .getAll()
       .then(blogs =>
         setBlogs(blogs
-          .sort((a,b) => a.likes - b.likes)
-          .reverse()
+          .sort((a,b) => b.likes - a.likes)
         )
       )
   }, [])
@@ -74,8 +73,7 @@ const App = () => {
       .then(returnedBlog => {
         setBlogs(blogs
           .concat(returnedBlog)
-          .sort((a,b) => a.likes - b.likes)
-          .reverse()
+          .sort((a,b) => b.likes - a.likes)
         )
         blogFormRef.current.toggleVisibility()
         setError(false)
@@ -106,8 +104,7 @@ const App = () => {
       .then(returnedBlog => {
         setBlogs(blogs
           .map(blog => blog.id !== blogObject.id ? blog : returnedBlog)
-          .sort((a,b) => a.likes - b.likes)
-          .reverse()
+          .sort((a,b) => b.likes - a.likes)
         )
         // setError(false)
         // setNotification(
